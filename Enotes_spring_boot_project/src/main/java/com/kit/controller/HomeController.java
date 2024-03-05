@@ -35,19 +35,19 @@ public class HomeController {
 	@PostMapping("/saveUser")
 	public String saveUser(@ModelAttribute User user, HttpSession session) {
 
-//		boolean f = userService.existEmailCeck(user.getEmail());
-//
-//		if (f) {
-//			session.setAttribute("msg", "Email already exist");
-//		} else {
+		boolean f = userService.existEmailCeck(user.getEmail());
+
+		if (f) {
+			session.setAttribute("msg", "Email already exist");
+		} else {
 			User saveUser = userService.saveUser(user);
-//			if (saveUser != null) {
-//				session.setAttribute("msg", "Register success");
-//			} else {
-//				session.setAttribute("msg", "Something wrong on server");
-//			}
-//		}
-//
+			if (saveUser != null) {
+				session.setAttribute("msg", "Register success");
+			} else {
+				session.setAttribute("msg", "Something wrong on server");
+			}
+		}
+
 		return "redirect:/register";
 	}
 	

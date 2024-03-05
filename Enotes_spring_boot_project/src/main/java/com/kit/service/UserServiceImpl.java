@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public boolean existEmailCeck(String email) {
 	
-		//userRepo.existByEmail(email);
+		userRepo.existsByEmail(email);
 		return false;
 	}
 	
